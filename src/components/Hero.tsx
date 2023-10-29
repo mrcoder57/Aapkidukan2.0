@@ -51,7 +51,7 @@ const Hero = () => {
     return (
       <>
       <Carousel></Carousel>
-        <div className=' h-32 grid grid-cols-1 md:grid-cols-3 '>
+        <div className=' h-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {data.map(({ id, title, price, description, category, image, rating }) => (
                 <Productcard id={id} image={image} title={title} description={description} price={price} category={category} rating={rating}
                 />

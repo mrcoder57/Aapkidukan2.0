@@ -41,10 +41,10 @@ const Playpage: React.FC = () => {
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row">
-          <img src={singleData.image} className="max-w-sm rounded-lg shadow-2xl" alt={singleData.title} />
+        <div className="hero-content flex-col lg:flex-row ">
+          <img src={singleData.image} className="max-w-sm mr-8 rounded-lg shadow-2xl h-72 w-60 lg:w-[500px] lg:h-[650px]" alt={singleData.title} />
           <div>
-            <h1 className="text-5xl font-bold">{singleData.title}</h1>
+            <h1 className="lg:text-5xl text-3xl font-bold">{singleData.title}</h1>
             <p className="py-6 first-letter:capitalize">{singleData.description}</p>
             <button className="btn btn-primary">₹{singleData.price * 10}</button>
           </div>
