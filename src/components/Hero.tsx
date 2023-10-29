@@ -1,8 +1,7 @@
-import React from 'react'
+
 import { useState,useEffect } from 'react';
 import axios from 'axios';
-import { Tilt } from 'react-tilt';
-import { motion } from 'framer-motion';
+
 import { Link } from 'react-router-dom';
 import Carousel from './Carousel';
 interface ProductProps{
