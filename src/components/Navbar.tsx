@@ -1,7 +1,11 @@
 
 import { Link } from "react-router-dom"
+import avatar from "../assets/profile-avatar.svg";
+import { useSelector } from 'react-redux';
+import { selectTotalPrice} from './reducer';
 
 const Navbar = () => {
+  const cartItems = useSelector(selectTotalPrice);
   return (
     <div className="navbar bg-base-100">
   <div className="flex-1">
@@ -18,7 +22,8 @@ const Navbar = () => {
       <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
         <div className="card-body">
           <span className="font-bold text-lg">{0} Items</span>
-          <span className="text-info">${0}</span>
+          {cartItems.map((item) => (
+          <span className="text-info">${0}</span>   ))}
           <div className="card-actions">
             <button className="btn btn-primary btn-block">View cart</button>
           </div>
@@ -26,9 +31,9 @@ const Navbar = () => {
       </div>
     </div>
     <div className="dropdown dropdown-end">
-      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img src=""  alt="profile"/>
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar" >
+        <div className="w-10 rounded-full bg-slate-100 transition ease-in-out duration-300 hover:scale-105">
+          <img src={avatar}  alt="profile"/>
         </div>
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
