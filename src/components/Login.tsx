@@ -6,9 +6,6 @@ const Login = () => {
    
     const handleSubmit=(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // Perform form submission logic, for example, sending data to a server
-    
-        // After the form is submitted, redirect to a new page
       window.location.href="/";
     }
   return (
@@ -39,7 +36,7 @@ const Login = () => {
       </form>
     </div>
     <div className="text-center lg:text-left">
-      <img src={Cover} alt="Cover" className="lg:h-[600px] w-[500px] rounded-lg shadow-lg ml-3 transition ease-in-out duration-300 hover:scale-105"/>
+      <img src={Cover} alt="Cover" className="lg:h-[600px] w-[500px] rounded-lg shadow-lg ml-3 transition ease-in-out duration-200 hover:scale-105"/>
     </div>
   </div>
 </div>

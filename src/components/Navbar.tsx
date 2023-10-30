@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import avatar from "../assets/profile-avatar.svg";
 
 const Navbar = () => {
-  
   return (
     <div className="navbar bg-base-100">
   <div className="flex-1">
