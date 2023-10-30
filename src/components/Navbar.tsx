@@ -1,11 +1,9 @@
 
 import { Link } from "react-router-dom"
 import avatar from "../assets/profile-avatar.svg";
-import { useSelector } from 'react-redux';
-import { selectTotalPrice} from './reducer';
 
 const Navbar = () => {
-  const cartItems = useSelector(selectTotalPrice);
+  
   return (
     <div className="navbar bg-base-100">
   <div className="flex-1">
@@ -22,8 +20,7 @@ const Navbar = () => {
       <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
         <div className="card-body">
           <span className="font-bold text-lg">{0} Items</span>
-          {cartItems.map((item) => (
-          <span className="text-info">${0}</span>   ))}
+          <span className="text-info">${0}</span>
           <div className="card-actions">
             <button className="btn btn-primary btn-block">View cart</button>
           </div>
