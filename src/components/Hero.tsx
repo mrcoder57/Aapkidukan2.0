@@ -18,7 +18,7 @@ const Productcard = (props:ProductProps) => {
     return (
        
                <div className="card bg-base-100 shadow-xl max-h-[600px] m-10 w-72 h-[500px] transition ease-in-out duration-300 hover:scale-105">
-  <figure className=' object-cover hover:scale-125 hover:h-[500px]'><img className=' object-cover 'src={props.image} alt={props.title} /></figure>
+  <figure className=' object-cover'><img className=' object-cover 'src={props.image} alt={props.title} /></figure>
   <div className="card-body" >
     <h2 className="card-title">
       {props.title.slice(0,40)}
@@ -41,7 +41,7 @@ const Productcard = (props:ProductProps) => {
 const Hero = () => {
     const [data, setData] = useState([]);
     const getApi = async () => {
-        const res = await axios.get('https://fakestoreapi.com/products?limit=12');
+        const res = await axios.get('https://aapkidukaan-backend.up.railway.app/products');
         setData(res.data);
         // console.log(res.data)
     }

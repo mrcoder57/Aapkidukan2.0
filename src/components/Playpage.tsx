@@ -17,7 +17,7 @@ const Playpage: React.FC = () => {
 
   const getApi = async () => {
     try {
-      const res = await axios.get<SingleData>(`https://fakestoreapi.com/products/${id}`);
+      const res = await axios.get<SingleData>(`https://aapkidukaan-backend.up.railway.app/products/${id}`);
       setSingleData(res.data);
       setLoading(false);
     } catch (error) {
