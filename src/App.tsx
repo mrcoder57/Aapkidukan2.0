@@ -16,8 +16,8 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<Hero/>}/>
-        <Route path="/:id" element={<Playpage/>} Component={Playpage}/>
-        <Route path="/Login" element={<Login/>} Component={Login}/>
+        <Route path="/:id" element={<Playpage/>} />
+        <Route path="/Login" element={<Login/>} />
       </Routes>
       </BrowserRouter>
     </>
