@@ -3,22 +3,23 @@ import { Carimg } from '../constant'
 
 const Carousel = () => {
   return (
-    <div className=' flex flex-col mt-3'>
-    <div className="carousel w-full max-h-[700px]">
-        {Carimg.map(car =>
-  <div id={`car${car.id}`} className="carousel-item w-full h-[50%]">
-  <img src={car.src} className="w-full " height={440}/>
-</div> 
-        )}
+   <div className='flex flex-col mt-3'>
+  <div className="carousel w-full max-h-[700px] ">
+    {Carimg.map(car =>
+      <div id={`car${car.id}`} key={car.id} className="carousel-item w-full h-[50%]">
+        <img src={car.src} className="w-full h-[500px] object-cover" alt={`Car ${car.id}`} />
+      </div> 
+    )}
+  </div>
+  <div className="w-full py-2 flex justify-center space-x-2 text-center">
+    {Carimg.map(car =>
+      <a key={car.id} href={`#car${car.id}`} className="btn btn-xs">
+        {car.id}
+      </a>
+    )}
+  </div>
 </div>
-<div className=" w-full py-2 justify-center text-center">
-  <a href="#car1" className="btn btn-xs">1</a> 
-  <a href="#car2" className="btn btn-xs">2</a> 
-  <a href="#car3" className="btn btn-xs">3</a> 
-  <a href="#car4" className="btn btn-xs">4</a>
-  <a href="#car5" className="btn btn-xs">5</a>
-</div>
-</div>
+
   )
 }
 

@@ -11,3 +11,12 @@ export const Carimg=[
     {id:4,src:image4},
     {id:5,src:image5}
 ]
+
+export const Pricesel=[
+    {id:1,price:99},
+    {id:2,price:199},
+    {id:3,price:299},
+    {id:5,price:499},
+    {id:6,price:1099}
+
+]
