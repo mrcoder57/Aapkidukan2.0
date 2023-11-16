@@ -49,7 +49,7 @@ interface Review {
 }
 const ProfilePage = () => {
   const [data, setData] = useState<User | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  
   const getApi = async () => {
     // Retrieve the JWT token from cookies
 
@@ -112,7 +112,7 @@ const ProfilePage = () => {
       {/* Orders Carousel Selling  */}
 
       {/* Products Slider*/}
-      <div className="h-[400px] w-full bg-slate-400 ">
+      <div className="h-[400px] w-full ">
         <div>
         <h2 className="text-3xl font-bold">Your Products</h2></div>
   {data?.products && data.products.length > 0 ? (
