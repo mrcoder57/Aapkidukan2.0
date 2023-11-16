@@ -28,9 +28,9 @@ const Login = () => {
 
       // Store the token in a cookie (you can set additional options like expiration)
       Cookies.set("jwtToken", token);
-      console.log('Token stored:', Cookies.get('jwtToken'));
+     
       console.log("Login successful", response.data);
-      // window.location.href = "/";
+      window.location.href = "/";
     } catch (error: any) {
       // Handle login error (e.g., show an error message)
       console.error("Login failed", error.message);

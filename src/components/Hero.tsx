@@ -17,7 +17,7 @@ interface ProductProps {
 const Productcard = (props: ProductProps) => {
   return (
     <div className="card grid grid-cols-2 bg-base-100 shadow-xl max-h-[400px] m-10 w-84 h-[300px] transition ease-in-out duration-300 hover:scale-105">
-      <figure className="object-cover h-full w-full rounded-lg items-center">
+      <figure className="object-cover h-full w-full rounded-lg Propss-center">
         <img className="object-cover rounded-lg" src={props.image} alt={props.title} />
       </figure>
       <div className="card-body  ">

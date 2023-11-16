@@ -7,6 +7,7 @@ interface SingleData {
   title: string;
   description: string;
   price: number;
+  
 }
 
 const Playpage: React.FC = () => {
@@ -20,6 +21,7 @@ const Playpage: React.FC = () => {
       const res = await axios.get<SingleData>(`https://aapkidukaan-backend.up.railway.app/products/${id}`);
       setSingleData(res.data);
       setLoading(false);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
       setLoading(false);

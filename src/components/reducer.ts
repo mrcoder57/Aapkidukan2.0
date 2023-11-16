@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from './store';
-type CartItem = {
+type CartProps = {
   id: number;
   name: string;
   price: number;
@@ -9,28 +9,28 @@ type CartItem = {
 };
 
 type CartState = {
-  items: CartItem[];
+  Propss: CartProps[];
 };
 
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: { items: [] } as CartState,
+  initialState: { Propss: [] } as CartState,
   reducers: {
-    addToCart: (state, action: PayloadAction<CartItem>) => {
-      const existingItem = state.items.find(item => item.id === action.payload.id);
-      if (existingItem) {
-        existingItem.qty += 1;
+    addToCart: (state, action: PayloadAction<CartProps>) => {
+      const existingProps = state.Propss.find(Props => Props.id === action.payload.id);
+      if (existingProps) {
+        existingProps.qty += 1;
       } else {
-        state.items.push(action.payload);
+        state.Propss.push(action.payload);
       }
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
-      const itemToRemove = state.items.find(item => item.id === action.payload);
-      if (itemToRemove) {
-        if (itemToRemove.qty === 1) {
-          state.items = state.items.filter(item => item.id !== action.payload);
+      const PropsToRemove = state.Propss.find(Props => Props.id === action.payload);
+      if (PropsToRemove) {
+        if (PropsToRemove.qty === 1) {
+          state.Propss = state.Propss.filter(Props => Props.id !== action.payload);
         } else {
-          itemToRemove.qty -= 1;
+          PropsToRemove.qty -= 1;
         }
       }
     },
@@ -39,9 +39,9 @@ const cartSlice = createSlice({
 
 export const { addToCart, removeFromCart } = cartSlice.actions;
 export default cartSlice.reducer;
-export const selectCartItems = (state: RootState) => state.cart.items;
+export const selectCartPropss = (state: RootState) => state.cart.Propss;
 
 export const selectTotalPrice = createSelector(
-  [selectCartItems],
-  (items: CartItem[]) => items.reduce((total, item) => total + item.price * item.qty, 0)
+  [selectCartPropss],
+  (Propss: CartProps[]) => Propss.reduce((total, Props) => total + Props.price * Props.qty, 0)
 );
