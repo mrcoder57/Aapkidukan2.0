@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Login from './components/Login'
 import PricePage from './components/PricePage'
 import ProfilePage from './components/ProfilePage'
+import ProductUpload from './components/ProductUpload'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/Login' element={<Login/>} />
         <Route path='/price/:price' element={<PricePage/>} />
         <Route path='/profile'element={<ProfilePage/>}/>
+        <Route path='/upload'element={<ProductUpload/>}/>
       </Routes>
       </BrowserRouter>
     </>

@@ -3,6 +3,9 @@ import ActiveSlider from "./ActiveSlider";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import add from "../assets/add-block-svgrepo-com.svg"
 
 interface User {
   userid: number;
@@ -49,7 +52,8 @@ interface Review {
 }
 const ProfilePage = () => {
   const [data, setData] = useState<User | null>(null);
-  
+  const [loading, setLoading] = useState(true);
+  const [addOpen,setAddOpen] = useState(false);
   const getApi = async () => {
     // Retrieve the JWT token from cookies
 
@@ -71,6 +75,7 @@ const ProfilePage = () => {
         config
       );
       setData(res.data);
+      setLoading(false);
       console.log(res.data);
     } catch (error: any) {
       // Log the error response for debugging
@@ -78,6 +83,7 @@ const ProfilePage = () => {
 
       // Handle errors
       console.error("Error:", error.message);
+      setLoading(false);
       window.location.href='/login'
     }
   };
@@ -85,8 +91,36 @@ const ProfilePage = () => {
   useEffect(() => {
     getApi();
   }, []);
- 
-  
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+const handleOpen=() => {
+  setAddOpen(true);
+  console.log(addOpen);
+}
+  if (loading || data === null) {
+    return (
+      <div className='justify-center text-center text-3xl mt-56'>
+        <span className="loading loading-spinner text-success h-24 w-24"></span>
+      </div>
+    );
+  }
   
   return (
     <div className=" w-screen-lg  ">
@@ -95,7 +129,7 @@ const ProfilePage = () => {
           <img
             src={avatar}
             alt="your image"
-            className="justify-center ml-6 h-44 w-44 rounded-full "
+            className="justify-center ml-6 h-32 w-32 rounded-full "
           />
           <div>
             <span className=" text-xl  font-semibold my-4">Name</span>
@@ -112,12 +146,18 @@ const ProfilePage = () => {
       {/* Orders Carousel Selling  */}
 
       {/* Products Slider*/}
-      <div className="h-[400px] w-full ">
-        <div>
-        <h2 className="text-3xl font-bold">Your Products</h2></div>
+      <div className="h-[400px] w-full">
+        
+        <div className=" flex justify-between my-[30px]">
+        <h2 className="text-3xl font-bold ml-4 ">Your Products</h2>
+        <button className=" p-2 rounded-full mr-4  border border-slate-700" onClick={handleOpen}>
+          <img src={add} alt="add new" className="w-12 h-12  rounded-full"/>
+        </button>
+        </div>
   {data?.products && data.products.length > 0 ? (
-    <div className="relative  w-[88%] mx-auto overflow-x-hidden">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div>
+      <div >
+      <Carousel responsive={responsive}>
         {data.products.map((product, index) => (
           <ActiveSlider
             key={index}
@@ -129,12 +169,16 @@ const ProfilePage = () => {
             category={product.category}
             rating={product.rating}
           />
-        )).slice(0,1)}
+        ))}
+        </Carousel>
       </div>
+      
     </div>
+   
   ) : (
     <p>No products to display</p>
   )}
+   
 </div>
 
     </div>
