@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import add from "../assets/add-block-svgrepo-com.svg"
+import { Link } from "react-router-dom";
 
 interface User {
   userid: number;
@@ -150,9 +151,11 @@ const handleOpen=() => {
         
         <div className=" flex justify-between my-[30px]">
         <h2 className="text-3xl font-bold ml-4 ">Your Products</h2>
+        <Link to="/upload">
         <button className=" p-2 rounded-full mr-4  border border-slate-700" onClick={handleOpen}>
           <img src={add} alt="add new" className="w-12 h-12  rounded-full"/>
         </button>
+        </Link>
         </div>
   {data?.products && data.products.length > 0 ? (
     <div>
