@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom"
 import avatar from "../assets/profile-avatar.svg";
-import aapkidukan from "../assets/aapkiduakn.jpeg"
+import aapkidukan from "../assets/aapkiduakn-removebg-preview.png"
 import Cookies from "js-cookie";
 
 const Navbar = () => {
