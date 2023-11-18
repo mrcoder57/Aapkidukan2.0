@@ -6,6 +6,7 @@ import Carouselimg from "./Carouselimg";
 import Pricecar from "./Pricecar";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Category from "./Category";
 interface ProductProps {
   id: number;
   title: string;
@@ -60,11 +61,11 @@ const Hero = () => {
       items: 3
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 668 },
       items: 2
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 668, min: 0 },
       items: 1
     }
   };
@@ -73,10 +74,12 @@ const Hero = () => {
       <Carouselimg></Carouselimg>
       <div className="overflow-x-auto">
         <Pricecar></Pricecar>
+        <Category/>
       </div>
       
-      <div className=" ">
+      <div className="overflow-x-hidden ">
       <h1 className=" ml-6 mt-4 text-2xl font-bold">Hot Deals  </h1>
+      <div className=" gap-6 w-full mr-5 my-4">
       <Carousel responsive={responsive}>
         {data.map(
           ({ id, title, price, description, category, image, rating }) => (
@@ -91,6 +94,7 @@ const Hero = () => {
             />
           )
         )}</Carousel>
+         </div>
       </div>
       
     </div>

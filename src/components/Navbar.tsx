@@ -4,6 +4,25 @@ import avatar from "../assets/profile-avatar.svg";
 import aapkidukan from "../assets/aapkiduakn-removebg-preview.png"
 import Cookies from "js-cookie";
 
+const LoginComp=()=>{
+  return(
+    <div>
+      <Link to="/Login">Login</Link>
+    </div>
+  )
+}
+const Logout=()=>{
+  const userLogout=()=>{
+     Cookies.remove('jwtToken');
+     window.location.reload();
+  }
+  return(
+    <div>
+      <button onClick={userLogout}>Logout</button>
+    </div>
+  );
+}
+
 const Navbar = () => {
 
   const token = Cookies.get('jwtToken');
@@ -12,8 +31,8 @@ const Navbar = () => {
     <div className="navbar bg-base-100 ">
   <div className="flex-1">
     <a href="/"className="btn btn-ghost normal-case text-xl">
-    <img src={aapkidukan} alt="logo"  className=" h-14 w-14 rounded-full" />
-    Aapkidukaan</a>
+    <img src={aapkidukan} alt="logo"  className=" h-14 w-14 rounded-full items-center" />
+    <div className=" hidden lg:block items-center md:block">Aapkidukaan</div></a>
   </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
@@ -47,7 +66,7 @@ const Navbar = () => {
           
         </li>
         <li><a>Settings</a></li>
-        <li><Link to="/Login">{token ? "Logout" : "Login"}</Link></li>
+        <li>{token ? <Logout/> : <Link to="/Login"><LoginComp/></Link>}</li>
       </ul>
     </div>
   </div>

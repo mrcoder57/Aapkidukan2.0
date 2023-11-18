@@ -1,39 +1,48 @@
-import { useState } from "react"
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 import Cover from "../assets/aapkiduakn.jpeg";
 const Register = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [username,setUsername] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-    const handleRegister = async ()=>{
-        if (!email || !password || !confirmPassword ||!username){
-            console.log('please fill complete information')}
-
-            if(password !== confirmPassword){
-                console.log('passwords doesnot match')
-        }
-        try {
-            const response= await axios.post('https://aapkidukaan-backend.up.railway.app/user/register', {
-                email:email,
-                username:username,
-                password:password
-            })
-            console.log("registeration successful", response.data)
-
-        } catch (error) {
-            if (axios.isAxiosError(error) && error.response) {
-                // Axios error with a response
-                console.error("Product creation failed", error.response.data);
-              } else {
-                // Other errors
-                console.error("Product creation failed with unknown error", error);
-              }
-        }
+  const handleRegister = async () => {
+    if (!email || !password || !confirmPassword || !username) {
+      console.log("please fill complete information");
     }
+
+    if (password !== confirmPassword) {
+      console.log("passwords doesnot match");
+    }
+    try {
+      const response = await axios.post(
+        "https://aapkidukaan-backend.up.railway.app/user/register",
+        {
+          email: email,
+          username: username,
+          password: password,
+        }
+      );
+      console.log("registeration successful", response.data);
+      setTimeout(() => {
+        
+        window.location.href = "/Login";
+      }, 3000); // 3000ms = 3 seconds
+      
+     
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response) {
+        // Axios error with a response
+        console.error("Product creation failed", error.response.data);
+      } else {
+        // Other errors
+        console.error("Product creation failed with unknown error", error);
+      }
+    }
+  };
 
   return (
     <div className="hero min-h-screen h-[790px] bg-base-200">
@@ -78,7 +87,7 @@ const Register = () => {
                 className="input input-bordered"
                 required
               />
-               <label className="label">
+              <label className="label">
                 <span className="label-text">Confirm Password</span>
               </label>
               <input
@@ -94,7 +103,8 @@ const Register = () => {
               </label>
             </div>
             <Link to="/Login">
-              <p>?already have an account <br />
+              <p>
+                ?already have an account <br />
                 <span>Login</span>
               </p>
             </Link>
@@ -104,7 +114,7 @@ const Register = () => {
                 type="button"
                 onClick={handleRegister}
               >
-                Login
+                Register
               </button>
             </div>
           </form>
@@ -118,7 +128,7 @@ const Register = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

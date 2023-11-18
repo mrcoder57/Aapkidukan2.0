@@ -6,7 +6,7 @@ const Carouselimg = () => {
    <div className='flex flex-col mt-3'>
   <div className="carousel mx-5">
     {Carimg.map(car =>
-      <div id={`car${car.id}`} key={car.id} className="carousel-Props carousel-item w-full h-[400px] rounded-xl">
+      <div id={`car${car.id}`} key={car.id} className="carousel-Props carousel-item w-full lg:h-[400px] h-[180px] md:h-[250px] rounded-xl">
         <img src={car.src} className="w-full  object-cover rounded-xl" alt={`Car ${car.id}`} />
       </div> 
     )}

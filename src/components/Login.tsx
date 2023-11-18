@@ -71,11 +71,20 @@ const Login = () => {
                 <a href="#" className="label-text-alt link link-hover"></a>
               </label>
             </div>
+            <div className=" flex justify-evenly gap-20">
             <Link to="/">
-              <p>
+              
+              <p className="text-lg font-semibold">
                 <span>Skip Login</span>
               </p>
             </Link>
+            <Link to="/register">
+              
+              <p className="text-lg font-semibold"> 
+                <span> Register Now</span>
+              </p>
+            </Link>
+            </div>
             <div className="form-control mt-6">
               <button
                 className="btn btn-primary transition ease-in-out duration-300 hover:scale-105"
