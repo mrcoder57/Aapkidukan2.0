@@ -7,6 +7,7 @@ import Login from './components/Login'
 import PricePage from './components/PricePage'
 import ProfilePage from './components/ProfilePage'
 import ProductUpload from './components/ProductUpload'
+import Register from './components/Register'
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
         <Route path='/price/:price' element={<PricePage/>} />
         <Route path='/profile'element={<ProfilePage/>}/>
         <Route path='/upload'element={<ProductUpload/>}/>
+        <Route path='/register'element={<Register/>}/>
+        
       </Routes>
       </BrowserRouter>
     </>

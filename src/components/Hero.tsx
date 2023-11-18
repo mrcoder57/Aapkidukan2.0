@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
-import Carousel from "./Carousel";
+import Carouselimg from "./Carouselimg";
 import Pricecar from "./Pricecar";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 interface ProductProps {
   id: number;
   title: string;
@@ -16,20 +18,17 @@ interface ProductProps {
 
 const Productcard = (props: ProductProps) => {
   return (
-    <div className="card grid grid-cols-2 bg-base-100 shadow-xl max-h-[400px] m-10 w-84 h-[300px] transition ease-in-out duration-300 hover:scale-105">
-      <figure className="object-cover h-full w-full rounded-lg Propss-center">
-        <img className="object-cover rounded-lg" src={props.image} alt={props.title} />
+    <div className="card grid grid-cols-2 bg-base-100 shadow-xl max-h-[400px] m-10 w-[350px]  lg:w-[350px] lg:h-[250px] h-[200px] transition ease-in-out duration-300 hover:scale-105">
+      <figure className="object-cover lg:h-[250px] h-[200px] w-full rounded-lg Propss-center  ">
+        <img className="object-cover rounded-lg h-[200px]" src={props.image} alt={props.title} />
       </figure>
       <div className="card-body  ">
         <h2 className="card-title">{props.title.slice(0, 40)}</h2>
-        <h2>{props.description.slice(0, 100)}</h2>
+        <h2>{props.description.slice(0,25)}</h2>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">
-            <span>₹{props.price * 10}</span>
-          </div>
           <Link to={`${props.id}`}>
             <button className="border border-slate-800 p-2 justify-end rounded-lg mx-2 transition ease-in-out duration-300 hover:scale-105">
-              Buy Now
+             ₹ {props.price}
             </button>
           </Link>
         </div>
@@ -50,13 +49,35 @@ const Hero = () => {
   useEffect(() => {
     getApi();
   }, []);
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
   return (
     <div className="h-full w-full">
-      <Carousel></Carousel>
+      <Carouselimg></Carouselimg>
       <div className="overflow-x-auto">
         <Pricecar></Pricecar>
       </div>
-      <div className=" h-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      
+      <div className=" ">
+      <h1 className=" ml-6 mt-4 text-2xl font-bold">Hot Deals  </h1>
+      <Carousel responsive={responsive}>
         {data.map(
           ({ id, title, price, description, category, image, rating }) => (
             <Productcard
@@ -69,8 +90,9 @@ const Hero = () => {
               rating={rating}
             />
           )
-        )}
+        )}</Carousel>
       </div>
+      
     </div>
   );
 };

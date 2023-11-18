@@ -1,12 +1,19 @@
 
 import { Link } from "react-router-dom"
 import avatar from "../assets/profile-avatar.svg";
+import aapkidukan from "../assets/aapkiduakn.jpeg"
+import Cookies from "js-cookie";
 
 const Navbar = () => {
+
+  const token = Cookies.get('jwtToken');
+
   return (
     <div className="navbar bg-base-100 ">
   <div className="flex-1">
-    <a href="/"className="btn btn-ghost normal-case text-xl">Aapkidukaan</a>
+    <a href="/"className="btn btn-ghost normal-case text-xl">
+    <img src={aapkidukan} alt="logo"  className=" h-14 w-14 rounded-full" />
+    Aapkidukaan</a>
   </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
@@ -40,7 +47,7 @@ const Navbar = () => {
           
         </li>
         <li><a>Settings</a></li>
-        <li><Link to="/Login">Logout</Link></li>
+        <li><Link to="/Login">{token ? "Logout" : "Login"}</Link></li>
       </ul>
     </div>
   </div>
