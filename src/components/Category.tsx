@@ -25,7 +25,7 @@ const Category = () => {
   return (
     <div className=" mx-5 overflow-x-hidden">
     <h2 className=" text-2xl font-bold my-4 ">Select by Category</h2>
-    <div className=" mx-5 justify-evenly ">
+    <div className=" mx-5 justify-evenly space-x-2 sm:space-x-4 ">
       <Carousel responsive={responsive}>
         {categories.map((cate) => (
           <div className=" w-full mx-5 mr-0 my-4 items-center">
