@@ -4,8 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Carouselimg from "./Carouselimg";
 import Pricecar from "./Pricecar";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+
 import Category from "./Category";
 interface ProductProps {
   id: number;
