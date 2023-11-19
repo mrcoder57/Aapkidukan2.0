@@ -23,7 +23,7 @@ const Category = () => {
         },
       };
   return (
-    <div className=" lg:mx-5 mx-0 overflow-x-hidden">
+    <div className=" lg:mx-5 mx-[-10px] overflow-x-hidden">
     <h2 className=" text-2xl font-bold my-4 ">Select by Category</h2>
     <div className=" mx-5 justify-evenly space-x-2 sm:space-x-4 ">
       <Carousel responsive={responsive}>
