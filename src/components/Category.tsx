@@ -19,11 +19,11 @@ const Category = () => {
         },
         mobile: {
           breakpoint: { max: 464, min: 0 },
-          items: 2,
+          items: 3,
         },
       };
   return (
-    <div className=" mx-5 overflow-x-hidden">
+    <div className=" lg:mx-5 mx-0 overflow-x-hidden">
     <h2 className=" text-2xl font-bold my-4 ">Select by Category</h2>
     <div className=" mx-5 justify-evenly ">
       <Carousel responsive={responsive}>
@@ -32,7 +32,7 @@ const Category = () => {
             <div className="btn h-[90px] w-28 p-1 px-auto rounded-xl">
             <Link to={`/category${cate.name}`} >
               
-                <span className="">  <img src={cate.icon} alt="icon" className=" h-8 w-8 mx-auto " /> </span> 
+                <span className="">  <img src={cate.icon} alt="icon" className=" h-10 w-10 mx-auto sepia-100 saturate-500 brightness-500 bg-slate-100 border border-slate-100 p-1 rounded-full transition ease-in-out"  /> </span> 
                 
               <br /><div className="  p-[12px] mt-[-10px]">{cate.name}</div>
             </Link>

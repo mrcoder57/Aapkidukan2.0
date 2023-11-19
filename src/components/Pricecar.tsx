@@ -20,23 +20,23 @@ const Pricecar = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2,
+      items: 3,
     },
   };
 
   return (
-    <div className=" mx-5">
+    <div className=" lg:mx-5 mx-1">
       <h2 className=" text-2xl font-bold my-4 ">Select by Price</h2>
       <div className=" mx-5 justify-evenly">
         <Carousel responsive={responsive}>
           {Pricesel.map((price) => (
             <div className=" w-full mx-5 mr-[-10px] my-4">
-              <div className="btn h-[72px] w-24 p-4 rounded-xl">
+              <div className="btn h-[72px] w-[100px] p-[18px] rounded-xl">
               <Link to={`price/${price.price}`} >
                 
-                  <span className=" my-2"> Under </span> 
+                  <span className=" my-0"> Under </span> 
                   
-                <br /><div className="badge badge-secondary mt-1 p-[12px]">₹ {price.price}</div>
+                <br /><div className="badge badge-secondary px-[14px] py-[16px] mt-[2px]">₹ {price.price}</div>
               </Link>
               </div>
             </div>

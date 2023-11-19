@@ -29,10 +29,10 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-base-100 ">
-  <div className="flex-1">
+  <div className="flex-1  items-center">
     <a href="/"className="btn btn-ghost normal-case text-xl">
-    <img src={aapkidukan} alt="logo"  className=" h-14 w-14 rounded-full items-center" />
-    <div className=" hidden lg:block items-center md:block">Aapkidukaan</div></a>
+    <img src={aapkidukan} alt="logo"  className=" h-20 w-20 rounded-full items-center mt-[-11.5px]" />
+    <div className=" hidden lg:block items-center md:block mt-[-8px]">Aapkidukaan</div></a>
   </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
@@ -54,8 +54,8 @@ const Navbar = () => {
     </div>
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar" >
-        <div className="w-10 rounded-full bg-slate-100 transition ease-in-out duration-300 hover:scale-105">
-          <img src={avatar}  alt="profile"/>
+        <div className=" w-[35px] rounded-full bg-slate-100 transition ease-in-out duration-300 hover:scale-105">
+          <img src={avatar}  alt="profile" className="h-12 w-11"/>
         </div>
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
