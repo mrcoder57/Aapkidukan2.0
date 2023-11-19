@@ -20,7 +20,7 @@ const Productcard = (props: ProductProps) => {
   return (
     <div className="card grid md:grid-cols-1 lg:grid-cols-2 sm:grid-cols-1 bg-base-100 shadow-xl max-h-[400px] m-10 w-[160px]  lg:w-[350px] lg:h-[250px] h-[380px] transition ease-in-out duration-300 hover:scale-105">
       <figure className="object-cover lg:h-[250px] h-[200px] w-[150px] rounded-lg Propss-center  ">
-        <img className="object-contain rounded-lg h-[200px]" src={props.image} alt={props.title} />
+        <img className="object-cover rounded-lg h-[200px]" src={props.image} alt={props.title} />
       </figure>
       <div className="card-body w-44 md:w-44 lg:w-44 mt-[-25px] ">
         <h2 className="card-title">{props.title.slice(0, 40)}</h2>

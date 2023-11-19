@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@media screen and (max-width: 540px) {
+    .xs-device {
+      /* Your styles for extra small devices go here */
+      grid-template-columns: 1fr !important;
+      /* Add any other styles you want for extra small devices */
+    }
+  }
