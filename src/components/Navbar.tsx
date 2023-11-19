@@ -14,7 +14,7 @@ const LoginComp=()=>{
 const Logout=()=>{
   const userLogout=()=>{
      Cookies.remove('jwtToken');
-     window.location.reload();
+     window.location.href='/';
   }
   return(
     <div>

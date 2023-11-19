@@ -11,7 +11,7 @@ const Carouselimg = () => {
       </div> 
     )}
   </div>
-  <div className="carousel-item w-full py-2 flex justify-center space-x-2 text-center">
+  <div className="carousel-item w-full py-2 lg:flex justify-center space-x-2 text-center hidden md:flex">
     {Carimg.map(car =>
       <a key={car.id} href={`#car${car.id}`} className="btn btn-xs rounded-full text-sm text-semibold">
         {car.id}

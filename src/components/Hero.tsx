@@ -19,14 +19,14 @@ interface ProductProps {
 
 const Productcard = (props: ProductProps) => {
   return (
-    <div className="card grid grid-cols-2 bg-base-100 shadow-xl max-h-[400px] m-10 w-[350px]  lg:w-[350px] lg:h-[250px] h-[200px] transition ease-in-out duration-300 hover:scale-105">
+    <div className="card grid grid-cols-2 bg-base-100 shadow-xl max-h-[400px] m-10 w-[300px]  lg:w-[350px] lg:h-[250px] h-[200px] transition ease-in-out duration-300 hover:scale-105">
       <figure className="object-cover lg:h-[250px] h-[200px] w-full rounded-lg Propss-center  ">
         <img className="object-cover rounded-lg h-[200px]" src={props.image} alt={props.title} />
       </figure>
-      <div className="card-body  ">
+      <div className="card-body w-44 mt-[-25px] ">
         <h2 className="card-title">{props.title.slice(0, 40)}</h2>
         <h2>{props.description.slice(0,25)}</h2>
-        <div className="card-actions justify-end">
+        <div className="card-actions ">
           <Link to={`${props.id}`}>
             <button className="border border-slate-800 p-2 justify-end rounded-lg mx-2 transition ease-in-out duration-300 hover:scale-105">
              ₹ {props.price}

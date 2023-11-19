@@ -26,7 +26,7 @@ const Pricecar = () => {
 
   return (
     <div className=" lg:mx-5 mx-1">
-      <h2 className=" text-2xl font-bold my-4 ">Select by Price</h2>
+      <h2 className=" text-2xl font-bold my-4 ml-2">Select by Price</h2>
       <div className=" mx-5 justify-evenly">
         <Carousel responsive={responsive}>
           {Pricesel.map((price) => (
