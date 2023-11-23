@@ -47,7 +47,7 @@ const Playpage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [imagePublicId, setImagePublicId] = useState<string | null>(null);
   const [text, setText] = useState("");
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
   const [reviewLoad, setReviewLoad] = useState(true);
 
@@ -253,7 +253,7 @@ const Playpage: React.FC = () => {
         <div className=" flex justify-between">
         <h2 className=" text-2xl ml-5 ">Reviews</h2>
         <button onClick={handleOpen}>
-          <img src={add} alt="create review" className=" h-8 w-8 bg-white"/>
+          <img src={add} alt="create review" className=" h-10 w-10 bg-white rounded-full"/>
         </button>
         </div>
         {singleData?.reviews && singleData.reviews.length > 0 ? (
