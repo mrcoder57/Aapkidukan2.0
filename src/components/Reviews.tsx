@@ -10,7 +10,7 @@ interface Review {
 const Reviews = (review:Review) => {
     
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white mx-auto my-4 grid grid-cols-2 w-80">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto my-4 grid grid-cols-2 w-80">
       <img
         src={review.image}
         alt={`${review.username}'s avatar`}
