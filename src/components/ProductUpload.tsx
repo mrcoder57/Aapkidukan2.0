@@ -8,6 +8,7 @@ const ProductUpload = () => {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
+  const [loadReview,setReviewLoad]=useState(true);
 
   const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -32,6 +33,7 @@ const ProductUpload = () => {
         );
 
         if (response.ok) {
+          setReviewLoad(false)
           const result = await response.json();
 
           if (result.public_id) {
@@ -208,7 +210,7 @@ const ProductUpload = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary" >
+              <button className="btn btn-primary" disabled={loadReview}>
                 Create
               </button>
             </div>

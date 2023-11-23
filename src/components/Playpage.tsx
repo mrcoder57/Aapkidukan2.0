@@ -49,6 +49,7 @@ const Playpage: React.FC = () => {
   const [text, setText] = useState("");
   const [rating, setRating] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [reviewLoad, setReviewLoad] = useState(true);
 
   const getApi = async () => {
     try {
@@ -83,15 +84,15 @@ const Playpage: React.FC = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 5,
+      items: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 4,
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 3,
+      items: 1,
     },
   };
   const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -117,6 +118,7 @@ const Playpage: React.FC = () => {
         );
 
         if (response.ok) {
+          setReviewLoad(false)
           const result = await response.json();
 
           if (result.public_id) {
@@ -166,6 +168,7 @@ const Playpage: React.FC = () => {
 
     if (!token) {
       console.log("You need to Login");
+      window.location.href="/login";
       return;
     }
 
@@ -195,8 +198,10 @@ const Playpage: React.FC = () => {
         config
       );
 
-      // Handle successful product creation (e.g., redirect, show a success message, etc.)
-      console.log("Product created successfully", response.data);
+      console.log(response.data);
+      window.alert("Review created successfully");
+      
+      window.location.reload();
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         // Axios error with a response
@@ -208,8 +213,8 @@ const Playpage: React.FC = () => {
     }
   };
   return (
-    <div className="flex flex-col mt-3 mx-4 md:mx-16 lg:mx-32">
-      <div className="grid xs-devices lg:grid-cols-2 md:grid-cols-2 mt-8 gap-5 overflow-x-hidden justify-center items-center lg:mx-10">
+    <div className="flex flex-col mt-3 mx-4 md:mx-16 lg:mx-32 rounded-2xl">
+      <div className="grid card-body xs-devices lg:grid-cols-2 md:grid-cols-2 mt-8 gap-5 overflow-x-hidden justify-center items-center lg:mx-10 ">
         <div className="p-3">
           <img
             src={singleData.image}
@@ -217,7 +222,7 @@ const Playpage: React.FC = () => {
             className="rounded-xl h-96 w-full lg:w-72 mx-auto lg:mx-0 shadow-lg"
           />
         </div>
-        <div className="h-96 w-full shadow-md p-6 rounded-xl">
+        <div className="h-96 card-body w-full shadow-md p-6 rounded-xl">
           <h2 className="text-3xl font-bold capitalize mb-4">
             {singleData.title}
           </h2>
@@ -232,14 +237,25 @@ const Playpage: React.FC = () => {
                 ₹{singleData.price}
               </h2>
             </div>
+          
           </div>
-          <div className="mt-6">
+          
+          <div className=" w-full">
+              <h2 className="text-lg capitalize font-semibold">{singleData.description}</h2>
+            </div>
+            <div className="mt-6">
             <button className="btn btn-accent">Buy Now</button>
           </div>
         </div>
+       
       </div>
       <div className=" mt-4 mx-8">
+        <div className=" flex justify-between">
         <h2 className=" text-2xl ml-5 ">Reviews</h2>
+        <button onClick={handleOpen}>
+          <img src={add} alt="create review" className=" h-8 w-8 bg-white"/>
+        </button>
+        </div>
         {singleData?.reviews && singleData.reviews.length > 0 ? (
           <Carousel responsive={responsive}>
             {singleData.reviews.map((review, index) => (
@@ -327,7 +343,7 @@ const Playpage: React.FC = () => {
                   />
                   <code></code>
                 </div>
-                <button className="btn btn-primary">Create</button>
+                <button className={` btn ${reviewLoad? "btn-neutral":"btn-primary"}`} disabled={reviewLoad}>Create</button>
               </form>
             </div>
           </div>
