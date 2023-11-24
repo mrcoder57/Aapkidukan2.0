@@ -204,10 +204,10 @@ const Playpage: React.FC = () => {
       window.location.reload();
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
-        // Axios error with a response
+      
         console.error("Product creation failed", error.response.data);
       } else {
-        // Other errors
+        
         console.error("Product creation failed with unknown error", error);
       }
     }
