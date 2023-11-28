@@ -1,12 +1,17 @@
-# Aapkidukaan An e-commerce for all
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
+# Aapkidukaan An e-commerce for all 
+Apkidukan is a full-stack PERN (PostgreSQL, Express, React, Node) application with TypeScript that enables users to create products, write reviews, buy and sell products, and more.
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##Features
+User authentication and authorization using JWT and bcrypt
 
+Product creation, editing, and deletion with image upload using Cloudinary
+
+Product rating and review system with star ratings and comments
+
+Responsive and modern UI design using Material-UI and styled-component
+## Demo
+You can view a live demo of the app here:https://aapkidukan2-0.vercel.app/
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
